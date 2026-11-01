@@ -53,6 +53,11 @@
 
 .syntax         unified
 
+/* Optional preload used by the ARMv5 path as well as newer ARM cores. */
+        .macro optpld reg, offset=#0
+        pld     [\reg, \offset]
+        .endm
+
 #if defined (__thumb__)
         .thumb
         .thumb_func
